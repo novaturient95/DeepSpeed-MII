@@ -190,7 +190,7 @@ def hf_provider(model_path, model_name, task_name, mii_config):
         inference_pipeline = pipeline(
             task_name,
             model=model_name,
-            device=device,
+            device_map = "auto",  # temporary validation
             framework="pt",
             use_auth_token=mii_config.hf_auth_token,
             torch_dtype=mii_config.dtype,
